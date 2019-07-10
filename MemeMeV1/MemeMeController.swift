@@ -38,16 +38,8 @@ UINavigationControllerDelegate{
         super.viewDidLoad()
         
         resetText()
-        
-        upperTextField.defaultTextAttributes = memeTextAttributes
-        upperTextField.textAlignment = NSTextAlignment.center
-        upperTextField.delegate = textFieldsDelegate
-        upperTextField.adjustsFontSizeToFitWidth = true
-       
-        lowerTextField.defaultTextAttributes = memeTextAttributes
-        lowerTextField.textAlignment = NSTextAlignment.center
-        lowerTextField.delegate = textFieldsDelegate
-        lowerTextField.adjustsFontSizeToFitWidth = true
+        setupTextFields(upperTextField)
+        setupTextFields(lowerTextField)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,6 +101,13 @@ UINavigationControllerDelegate{
         imagePickerView.image = nil
         resetText()
         enableButtons(false)
+    }
+    
+    func  setupTextFields(_ textField: UITextField){
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = NSTextAlignment.center
+        textField.delegate = textFieldsDelegate
+        textField.adjustsFontSizeToFitWidth = true
     }
 }
 
